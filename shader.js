@@ -53,7 +53,14 @@ this.holder=holder
 this.onUpdate=options.onUpdate
 this.onResize=options.onResize
 this.data={}
-holder.appendChild(canvas)
+const canvas = document.querySelector('canvas');
+
+const holder = document.getElementById('snow');
+if (holder) {
+  holder.appendChild(canvas);
+} else {
+  console.error('Could not find the element with the id "snow"');
+}
 this.createProgram(options.vertex,options.fragment)
 this.createBuffers(buffers)
 this.createUniforms(uniforms)
